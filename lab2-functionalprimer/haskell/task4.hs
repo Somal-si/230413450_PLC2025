@@ -1,14 +1,21 @@
 ask :: String -> IO ()
+
+--sgn x = if x == "quit" then putStrLn "quitting..." else if ask
+
 ask prompt =
   do
   putStrLn prompt
   line <- getLine
   if line == ""
-    then ask prompt
-    else putStrLn ("you said: " ++ reverse line)
+    then ask (prompt ++ "!")
+  else if line == "quit"
+    then putStrLn "quitting..."
+  else putStrLn ("you said: " ++ reverse line)
 
 main :: IO ()
 main =
   do
-  let prompt = "please say something"
+  let prompt = "please say something" 
   ask prompt
+  
+  
