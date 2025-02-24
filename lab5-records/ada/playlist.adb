@@ -28,6 +28,10 @@ procedure PlayList is
         Put (" (");
         Put (i.length_secs, aft => 1, exp => 0);
         Put ("s)");
+        Put (To_String (i.item_variant));
+        Put ("PAUSE");
+        Put (i.length_secs, aft => 1, exp => 0);
+        Put ("s)");
     end Put_Item;
 
     piece1 : Item :=
@@ -36,15 +40,15 @@ procedure PlayList is
         length_secs => 17.0*60.0+26.0
        );
 
-    -- pause1 : Item :=
-    --    (
-    --     item_variant => PAUSE,
-    --     length_secs => 5.0
-    --    );
+    pause1 : Item :=
+       (
+         item_variant => PAUSE,
+         length_secs => 5.0
+       );
 
 begin
     Put_Item (piece1);
     Put_Line ("");
-    -- Put_Item(pause1);
-    -- Put_Line ("");
+    Put_Item(pause1);
+    Put_Line ("");
 end PlayList;
